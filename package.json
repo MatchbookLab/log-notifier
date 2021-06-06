@@ -1,0 +1,58 @@
+{
+  "name": "@matchbook-lab/log-notifier",
+  "version": "1.0.0-rc.7",
+  "description": "Parse logs to show notifications.",
+  "main": "./dist/main.js",
+  "browser": "./dist/browser.js",
+  "types": "./dist/main.d.ts",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": "./dist/main.js",
+    "./browser": "./dist/browser.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npm run clean && npm run build:ts && npm run build:wp",
+    "build:ts": "tsc",
+    "build:wp": "npm run webpack",
+    "clean": "rimraf ./dist/",
+    "watch:ts": "tsc -w",
+    "watch:wp": "npm run webpack -- -w",
+    "webpack": "cross-env TS_NODE_PROJECT=\"tsconfig.web.json\" webpack",
+    "prepublishOnly": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MatchbookLab/log-notifier.git"
+  },
+  "author": "MatchbookLab",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MatchbookLab/log-notifier/issues"
+  },
+  "homepage": "https://github.com/MatchbookLab/log-notifier#readme",
+  "dependencies": {
+    "chalk": "^4.1.1",
+    "core-js": "^3.14.0",
+    "node-notifier": "^10.0.0",
+    "socket.io": "^4.1.2",
+    "socket.io-client": "^4.1.2",
+    "tail": "^2.2.2"
+  },
+  "devDependencies": {
+    "@types/node": "^15.12.1",
+    "@types/node-notifier": "^8.0.0",
+    "@types/tail": "^2.2.0",
+    "cross-env": "^7.0.3",
+    "rimraf": "^3.0.2",
+    "ts-loader": "^9.2.3",
+    "ts-node": "^10.0.0",
+    "ts-node-dev": "^1.1.6",
+    "tsconfig-paths-webpack-plugin": "^3.5.1",
+    "typescript": "^4.3.2",
+    "webpack": "^5.38.1",
+    "webpack-cli": "^4.7.0"
+  }
+}
